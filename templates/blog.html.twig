@@ -1,0 +1,54 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    {% set collection = page.collection() %}
+    {% set dateformat = admin.page.dateformat ?: config.system.pages.dateformat.short ?: "F d, Y" %}
+
+    {% if page.header.hero_image or page.media['hero.jpg'] %}
+        {% if page.header.hero_image %}
+            {% set hero_url = url(page.media[page.header.hero_image].url) %}
+        {% else %}
+            {% set hero_url = page.media['hero.jpg'].url %}
+            {# TODO: try getting alt text from an image meta file #}
+        {% endif %}
+        <span class="image fit"><img src="{{ hero_url }}" alt="{{ page.header.hero_alt }}" /></span> {# NB: wrapping link 'a' element from source template replaced with span - just can't see why link should be here #}
+    {% endif %}
+                    
+
+    <div>
+        
+        {% for post in collection %}
+        <div>
+            {#<a href="{{ post.url }}">#}
+            <h2 class="post-title">{{ post.title }}</h2>
+            {% if post.header.subheading %}
+            <h3 class="post-subtitle">{{ post.header.subheading }}</h3>
+            
+            {% endif %}
+
+            {#</a>#}
+            {#<p class="post-meta">{{ 'THEME_CLEAN_BLOG.POST_BY'|t }} {{ post.header.author }} {{ 'THEME_CLEAN_BLOG.POST_ON'|t }} {{ post.date|date(dateformat) }}</p>#}
+            {#<p>{{ post.header.teaser }}</p>#}
+            {% if post.header.preview %}
+                <p> {{ post.header.preview }} </p>
+            {% else %}
+                {{ post.summary }}
+            {% endif %}
+
+            <a href="{{ post.url }}" class="button small">
+            {% if post.header.buttontext %}
+            {{post.header.buttontext}}
+            {% else %}
+            Continue Reading
+            {% endif %}
+            </a>
+        </div>
+        <hr>
+        {% endfor %}
+        {% if config.plugins.pagination.enabled and collection.params.pagination %}
+            {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+        {% endif %}
+        
+    </div>
+
+{% endblock content %}
