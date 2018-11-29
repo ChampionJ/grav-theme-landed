@@ -36,11 +36,13 @@
             {% endif %}
 
             <a href="{{ post.url }}" class="button small">
-            {% if post.header.buttontext %}
-            {{post.header.buttontext}}
-            {% else %}
-            Continue Reading
-            {% endif %}
+                {% if post.header.buttontext %}
+                    {{post.header.buttontext}}
+                {% elseif page.header.defaultbutton %}
+                    {{page.header.defaultbutton}}
+                {% else %}
+                    Continue Reading
+                {% endif %}
             </a>
         </div>
         <hr>
