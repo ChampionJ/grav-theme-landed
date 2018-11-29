@@ -34,16 +34,19 @@
             {% else %}
                 {{ post.summary }}
             {% endif %}
-
-            <a href="{{ post.url }}" class="button small">
-                {% if post.header.buttontext %}
-                    {{post.header.buttontext}}
-                {% elseif page.header.defaultbutton %}
-                    {{page.header.defaultbutton}}
-                {% else %}
-                    Continue Reading
-                {% endif %}
-            </a>
+            <ul class="actions">
+                <li>
+                    <a href="{{ post.url }}" class="button small">
+                        {% if post.header.buttontext %}
+                            {{post.header.buttontext}}
+                        {% elseif page.header.defaultbutton %}
+                            {{page.header.defaultbutton}}
+                        {% else %}
+                            Continue Reading
+                        {% endif %}
+                    </a>
+                <li>
+            </ul>
         </div>
         <hr>
         {% endfor %}
