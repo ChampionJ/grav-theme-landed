@@ -5,9 +5,14 @@
 		<div class="content">
 			<header>
 				<h2>{{ banner_data.headline }}</h2>
+				 
+				<p>{% for quip in banner_data.quips %}{{quip.text}}<br>{% endfor %}</p>
+				
+				{#
 				{% if banner_data.quips %}
 					<p>{{ banner_data.quips|join('<br/>') }}</p>
 				{% endif %}
+				#}
 			</header>
 			{% set hero_url = url(page.media[banner_data.hero_image].url) %}
 			<span class="image"><img src="{{ url( (hero_url ?: 'theme://images/pic01.jpg') ) }}" alt="{{ banner_data.hero_alt }}" /></span>

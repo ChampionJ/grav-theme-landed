@@ -1,0 +1,111 @@
+title: home
+'@extends':
+    type: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          
+          fields:
+            header.hero_image:
+              type: ignore
+            header.subheading:
+              type: ignore
+            header.spotlight:
+              type: ignore
+
+            header.banner:
+              type: fieldset
+              title: Banner
+              help: 
+              info: 
+              text: 
+              icon: 
+              collapsed: true     # Initial state of fieldset (see collapsible option)
+              collapsible: true    # Whether one can expand the fieldset or not 
+              fields:
+                header.banner.hero_image:
+                  type: pagemediaselect
+                  label: Spotlight Background Image
+                  help: 
+                header.banner.hero_alt:
+                  type: text
+                  label: Hero Alt Text
+                  help: 
+                header.banner.headline:
+                  type: text
+                  label: Headline
+                  help: 
+                header.banner.quips:
+                  name: quips
+                  type: list
+                  style: vertical
+                  label: Quips
+                  fields:
+                    .text:
+                      type: text
+                      label: Quip
+                header.banner.blurb:
+                  type: text
+                  label: Blurb
+                  help: 
+            header.intro:
+              type: fieldset
+              title: Intro
+              help: 
+              info: 
+              text: 
+              icon: 
+              collapsed: true     # Initial state of fieldset (see collapsible option)
+              collapsible: true    # Whether one can expand the fieldset or not 
+              fields:
+                header.intro.hero_image:
+                  type: pagemediaselect
+                  label: Spotlight Background Image
+                  help: 
+                header.intro.hero_alt:
+                  type: text
+                  label: Hero Alt Text
+                  help: 
+                header.intro.headline:
+                  type: text
+                  label: Headline
+                  help: 
+                header.intro.blocks:
+                  name: blocks
+                  type: list
+                  style: vertical
+                  label: Blocks
+                  max: 2
+                  fields:
+                    .text:
+                      type: text
+                      label: Text
+                header.intro.byline:
+                  type: text
+                  label: Blurb
+                  help: 
+            header.features:
+              type: fieldset
+              title: Features
+              help: 
+              info: 
+              text: 
+              icon: 
+              collapsed: true     # Initial state of fieldset (see collapsible option)
+              collapsible: true    # Whether one can expand the fieldset or not 
+              fields:
+                header.features.items.@taxonomy.pagetype:
+                  type: text
+                  label: Pagetype
+                  help: 
+                header.features.order.by:
+                  type: text
+                  label: Order By
+                  help: 
+                
