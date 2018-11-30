@@ -1,0 +1,51 @@
+title: default
+'@extends':
+    type: default
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          
+          fields:
+            header.hero_image:
+              type: pagemediaselect
+              label: Hero Image
+              help: The name and extension of an image in this folder
+            header.subheading:
+              type: text
+              label: Subheading
+              help: Just write something
+
+            header.spotlight:
+              type: fieldset
+              title: Spotlight
+              help: Fill this out if you want this to appear on a Home page
+              info: 
+              text: 
+              icon: 
+              collapsed: true     # Initial state of fieldset (see collapsible option)
+              collapsible: true    # Whether one can expand the fieldset or not 
+              fields:
+                header.spotlight.image:
+                  type: pagemediaselect
+                  label: Spotlight Background Image
+                  help: 
+                header.spotlight.headline:
+                  type: text
+                  label: Headline
+                  help: 
+                header.spotlight.subheading:
+                  type: text
+                  label: Subheading
+                  help: 
+                header.spotlight.blurb:
+                  type: text
+                  label: Blurb
+                  help: 
+
+
