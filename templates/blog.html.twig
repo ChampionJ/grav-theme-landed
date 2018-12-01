@@ -29,16 +29,16 @@
             {#</a>#}
             {#<p class="post-meta">{{ 'THEME_CLEAN_BLOG.POST_BY'|t }} {{ post.header.author }} {{ 'THEME_CLEAN_BLOG.POST_ON'|t }} {{ post.date|date(dateformat) }}</p>#}
             {#<p>{{ post.header.teaser }}</p>#}
-            {% if post.header.preview %}
-                <p> {{ post.header.preview }} </p>
+            {% if post.header.blog.preview %}
+                <p> {{ post.header.blog.preview }} </p>
             {% else %}
                 {{ post.summary }}
             {% endif %}
             <ul class="actions">
                 <li>
                     <a href="{{ post.url }}" class="button">
-                        {% if post.header.buttontext %}
-                            {{post.header.buttontext}}
+                        {% if post.header.blog.button.text %}
+                            {{post.header.blog.button.text}}
                         {% elseif page.header.defaultbutton %}
                             {{page.header.defaultbutton}}
                         {% else %}

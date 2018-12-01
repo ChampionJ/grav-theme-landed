@@ -20,10 +20,10 @@ form:
               type: text
               label: Subheading
               help: Just write something
-
+            
             header.spotlight:
               type: fieldset
-              title: Spotlight
+              title: Spotlight Info
               help: Fill this out if you want this to appear on a Home page
               info: 
               text: 
@@ -47,5 +47,30 @@ form:
                   type: text
                   label: Blurb
                   help: 
+                header.spotlight.button.text:
+                  type: text
+                  label: Spotlight Button Link Text
+                  help: Used when this page is linked on Home pages
+            header.blog:
+              type: fieldset
+              title: Blog Info
+              help: Fill this out if you want this to appear on a Blog page
+              info: 
+              text: 
+              icon: 
+              collapsed: true     # Initial state of fieldset (see collapsible option)
+              collapsible: true    # Whether one can expand the fieldset or not 
+              fields:
+                header.blog.button.text:
+                  type: text
+                  label: Blog Button Text
+                  help: Used when this page is linked on Blog pages
+                header.blog.preview:
+                  type: text
+                  label: Preview
+                  help: Used in place of an automatic summary
+              
+            
+                
 
 

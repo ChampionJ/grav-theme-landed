@@ -1,0 +1,3 @@
+title: right-sidebar
+'@extends':
+    type: sidebar

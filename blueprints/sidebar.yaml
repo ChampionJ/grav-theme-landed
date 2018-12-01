@@ -1,0 +1,51 @@
+title: sidebar
+'@extends':
+    type: default
+
+
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          
+          fields:
+            
+            header.sidebars:
+              type: fieldset
+              title: Sidebars
+              help: Fill this out if you want this to appear on a Home page
+              info: 
+              text: 
+              icon: 
+              collapsed: true     # Initial state of fieldset (see collapsible option)
+              collapsible: true    # Whether one can expand the fieldset or not 
+              fields:
+                header.sidebars.portals:
+                  name: portals
+                  type: list
+                  style: vertical
+                  label: Portal
+                  max: 6
+                  fields:
+                    .path:
+                      type: pages
+                      size: medium
+                      classes: fancy
+                      label: Page
+                      show_all: false
+                      show_modular: false
+                      show_root: false
+                      help: Page to link to 
+                    .preview:
+                      type: text
+                      label: Preview Text
+                      help: Optional preview text, if blank it will pull from the page itself 
+                    .button_text:
+                      type: text
+                      label: Button Text
+                

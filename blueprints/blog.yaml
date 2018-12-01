@@ -1,0 +1,52 @@
+title: blog
+'@extends':
+    type: default
+
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          
+          fields:
+            header.content.items:
+              type: text
+              label: Items
+              help: @self.children is typical
+            header.content.order.by:
+              type: text
+              label: Order By
+              help: date is typical
+            header.content.order.dir:
+              type: text
+              label: Direction
+              help: desc is typical
+            header.defaultbutton:
+              type: text
+              label: Default Button Text
+              help: 
+
+            header.content.pagination:
+              type: toggle
+              label: Pagination
+              highlight: 1
+              help: Make multiple pages?
+              options:
+                  1: Yes
+                  0: No
+              validate:
+                  type: bool
+            header.content.url_taxonomy_filters:
+              type: toggle
+              label: Url Taxonomy Filters
+              highlight: 1
+              help: 
+              options:
+                  1: Yes
+                  0: No
+              validate:
+                  type: bool

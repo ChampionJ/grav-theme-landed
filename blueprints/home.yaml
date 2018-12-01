@@ -66,7 +66,7 @@ form:
               fields:
                 header.intro.hero_image:
                   type: pagemediaselect
-                  label: Spotlight Background Image
+                  label: Hero Image
                   help: 
                 header.intro.hero_alt:
                   type: text
