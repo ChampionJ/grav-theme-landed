@@ -33,11 +33,17 @@
             </li>
         {% endfor %}
     {% endif %}
-    {% for mitem in site.menu %}
+    {% for mitem in theme_config.navigation.menus %}
         <li>
-            <a href="{{ mitem.url }}" class="{{ mitem.classes }}">
+        {% if mitem.usepage %}
+            <a href="{{ mitem.page }}" class="{{ mitem.classes }}">
                 {{ mitem.text }}
             </a>
+        {% elseif mitem.externalurl %}
+            <a href="{{ mitem.externalurl }}" target="_blank" class="{{ mitem.classes }}">
+                {{ mitem.text }}
+            </a>
+        {% endif %}
         </li>
     {% endfor %}
 </ul>

@@ -26,3 +26,50 @@ form:
           0: PLUGIN_ADMIN.DISABLED
         validate:
           type: bool
+    navigation:
+      type: fieldset
+      title: Extra Menu Links
+      help: 
+      info: 
+      text: 
+      icon: 
+      collapsed: true     # Initial state of fieldset (see collapsible option)
+      collapsible: true    # Whether one can expand the fieldset or not 
+      
+      fields:
+        navigation.menus:
+          name: buttons
+          type: list
+          style: vertical
+          label: Links
+          fields:
+            .usepage:
+              type: toggle
+              label: Type
+              highlight: 
+              help: PLUGIN_ADMIN.ENABLED_HELP
+              options:
+                  1: 'Site Page'
+                  0: 'External'
+              validate:
+                  type: bool
+                  required: true
+            .page:
+              type: pages
+              size: medium
+              classes: fancy
+              label: Page
+              show_all: false
+              show_modular: false
+              show_root: false
+              help: 
+              toggleable: 
+            .externalurl:
+              type: text
+              label: External url
+            .text:
+              type: text
+              label: Link Text
+            .classes:
+              type: text
+              label: CSS Classes

@@ -144,6 +144,12 @@ input, select, textarea {
 			color: inherit;
 			border: 0;
 		}
+	#content h1 {
+		font-size: 2em;
+		line-height: 1em;
+		letter-spacing: -0.025em;
+		text-decoration: underline; 
+	}
 
 	h2 {
 		font-size: 2em;
