@@ -42,7 +42,7 @@ form:
                       show_root: false
                       help: Page to link to 
                     .preview:
-                      type: text
+                      type: textarea
                       label: Preview Text
                       help: Optional preview text, if blank it will pull from the page itself 
                     .button_text:

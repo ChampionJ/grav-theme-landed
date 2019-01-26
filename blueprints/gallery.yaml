@@ -1,0 +1,38 @@
+title: gallery
+'@extends':
+    type: default
+
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+
+      fields:
+        content:
+          
+          fields:
+            
+            header.gallery:
+              type: fieldset
+              title: Gallery
+              help: Fill this out if you want this to appear on a Home page
+              info: 
+              text: 
+              icon: 
+              collapsed: true     # Initial state of fieldset (see collapsible option)
+              collapsible: true    # Whether one can expand the fieldset or not 
+              fields:
+                header.gallery.items:
+                  name: portals
+                  type: list
+                  style: vertical
+                  label: Gallery Item
+                  fields:
+                    .image:
+                      type: pagemediaselect
+                      label: Image
+                    .name:
+                      type: text
+                      label: Image Title

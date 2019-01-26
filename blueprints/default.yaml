@@ -44,7 +44,7 @@ form:
                   label: Subheading
                   help: 
                 header.spotlight.blurb:
-                  type: text
+                  type: textarea
                   label: Blurb
                   help: 
                 header.spotlight.button.text:
@@ -66,7 +66,7 @@ form:
                   label: Blog Button Text
                   help: Used when this page is linked on Blog pages
                 header.blog.preview:
-                  type: text
+                  type: textarea
                   label: Preview
                   help: Used in place of an automatic summary
               

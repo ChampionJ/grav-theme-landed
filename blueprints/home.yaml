@@ -48,10 +48,10 @@ form:
                   label: Quips
                   fields:
                     .text:
-                      type: text
+                      type: textarea
                       label: Quip
                 header.banner.blurb:
-                  type: text
+                  type: textarea
                   label: Blurb
                   help: 
             header.intro:
@@ -84,10 +84,10 @@ form:
                   max: 2
                   fields:
                     .text:
-                      type: text
+                      type: textarea
                       label: Text
                 header.intro.byline:
-                  type: text
+                  type: textarea
                   label: Blurb
                   help: 
             header.features:
