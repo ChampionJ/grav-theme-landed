@@ -2,6 +2,7 @@
 
 {% block content %}
     
+
     {% set dateformat = admin.page.dateformat ?: config.system.pages.dateformat.short ?: "F d, Y" %}
 
     {% if page.header.hero_image or page.media['hero.jpg'] %}
@@ -13,6 +14,9 @@
         {% endif %}
         <span class="image fit"><img src="{{ hero_url }}" alt="{{ page.header.hero_alt }}" /></span> {# NB: wrapping link 'a' element from source template replaced with span - just can't see why link should be here #}
     {% endif %}
+
+<section id="content">
+    {{ page.content }}
 
 <div class="box alt">
 	<div class="row gtr-50 gtr-uniform"> <!-- NB: the images not in markdown and require Twig here because MD Extra processor inserts a para around the span, which breaks CSS -->
@@ -31,5 +35,5 @@
         
 	</div>
 </div>
-
+</section>
 {% endblock content %}

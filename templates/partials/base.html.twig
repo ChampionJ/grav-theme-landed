@@ -1,4 +1,6 @@
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+
+
 <!DOCTYPE HTML>
 <!--
 	Landed by HTML5 UP
@@ -8,11 +10,45 @@
 <html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
 <head>
 {% block head %}
+
+
+{% if page.header.hero_image or page.media['hero.jpg'] or page.header.banner.hero_image %}
+    {% if page.header.hero_image %}
+        {% set hero_url = url(page.media[page.header.hero_image].url) %}
+
+    {% elseif page.header.banner.hero_image %}
+        {% set hero_url = url(page.media[page.header.banner.hero_image].url) %}
+            
+    {% else %}
+        {% set hero_url = page.media['hero.jpg'].url %}
+
+            
+        {# TODO: try getting alt text from an image meta file #}
+        
+    {% endif %}
+{% endif %}
+
+
     <meta charset="utf-8" />
+    
     <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.descriptive_title|e('html') }}</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     {% include 'partials/metadata.html.twig' %}
+
+    <meta name="og:title" property="og:title" content="{% if header.title %}{{ header.title }} | {% endif %}{{ site.descriptive_title }}" />
+    <meta name="og:type" property="og:type" content="website" />
+    <meta name="og:url" property="og:url" content="{{ page.url(true, true) }}" />
+
+
+{# do not display summary on actual page - hibbittsdesign.org #}
+
+    {% if page.header.meta_description %}
+    <meta name="og:description" property="og:description" content="{{ page.header.meta_description }}" />
+    {% endif %}
+    {% if hero_url is defined %}
+    <meta name="og:image" property="og:image" content="{{hero_url}}" />
+    {% endif %}
 
     <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
     <link rel="canonical" href="{{ page.url(true, true) }}" />
@@ -74,13 +110,17 @@
             {% block content %}
             <!-- Content -->
                 <section id="content">
+                    
                     {% if page.header.hero_image or page.media['hero.jpg'] %}
                         {% if page.header.hero_image %}
-                            {% set hero_url = url(page.media[page.header.hero_image].url) %}
+                           {% set hero_url = url(page.media[page.header.hero_image].url) %}
+                            
                         {% else %}
                             {% set hero_url = page.media['hero.jpg'].url %}
+
+                            
                             {# TODO: try getting alt text from an image meta file #}
-                        {% endif %}
+                        {% endif %} 
                         <span class="image fit"><img src="{{ hero_url }}" alt="{{ page.header.hero_alt }}" /></span> {# NB: wrapping link 'a' element from source template replaced with span - just can't see why link should be here #}
                     {% endif %}
                     {{ page.content }}

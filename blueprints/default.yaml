@@ -20,6 +20,10 @@ form:
               type: text
               label: Subheading
               help: Just write something
+            header.meta_description:
+              type: text
+              label: Meta Description
+              help: Used for things like Twitter
             
             header.spotlight:
               type: fieldset
