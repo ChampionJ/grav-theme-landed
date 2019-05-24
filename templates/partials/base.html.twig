@@ -58,7 +58,6 @@
         {% do assets.addCss('theme://css/main.css', 100) %}
         {% do assets.addCss('theme://css/custom.css', 98) %}
     {% endblock %}
-    {{ assets.css() }}
 
     {% block javascripts %}
         {#  do assets.addJs('theme://js/jquery.min.js', {'group': 'bottom'}) #}
@@ -73,7 +72,11 @@
         
         {% do assets.addJs('theme://vendor/bootstrap/js/bootstrap.min.js', 100) %}
     {% endblock %}
-    {{ assets.js() }}
+
+    {% block assets %}
+        {{ assets.css() }}
+        {{ assets.js() }}
+    {% endblock %}
 
 {% endblock head %}
 </head>

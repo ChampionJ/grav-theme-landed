@@ -9,3 +9,13 @@
 
 1. [](#bugfix)
     * correct link for non-default hero images in base template
+
+# v0.1.2
+##  24-05-2019
+
+1. [](#improved)
+    * Base template modified so it can be extended to support a deferred asset block ([#3](https://github.com/hughbris/grav-theme-landed/issues/3))
+
+1. [](#new)
+    * Instructions for deploying deferred asset blocks added to README
+    * custom default favicon for theme
