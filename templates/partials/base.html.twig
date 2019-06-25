@@ -12,20 +12,8 @@
 {% block head %}
 
 
-{% if page.header.hero_image or page.media['hero.jpg'] or page.header.banner.hero_image %}
-    {% if page.header.hero_image %}
-        {% set hero_url = url(page.media[page.header.hero_image].url) %}
-
-    {% elseif page.header.banner.hero_image %}
-        {% set hero_url = url(page.media[page.header.banner.hero_image].url) %}
-            
-    {% else %}
-        {% set hero_url = page.media['hero.jpg'].url %}
-
-            
-        {# TODO: try getting alt text from an image meta file #}
-        
-    {% endif %}
+{% if page.header.hero_image %}
+    {% set hero_url = base_url ~"/assets/hero-images/"~ page.header.hero_image %}
 {% endif %}
 
 
@@ -114,18 +102,14 @@
             <!-- Content -->
                 <section id="content">
                     
-                    {% if page.header.hero_image or page.media['hero.jpg'] %}
-                        {% if page.header.hero_image %}
-                           {% set hero_url = url(page.media[page.header.hero_image].url) %}
-                            
-                        {% else %}
-                            {% set hero_url = page.media['hero.jpg'].url %}
-
-                            
-                            {# TODO: try getting alt text from an image meta file #}
-                        {% endif %} 
-                        <span class="image fit"><img src="{{ hero_url }}" alt="{{ page.header.hero_alt }}" /></span> {# NB: wrapping link 'a' element from source template replaced with span - just can't see why link should be here #}
+                    {% if page.header.hero_image %}
+                        
+                        {% set hero_url = base_url ~"/assets/hero-images/"~ page.header.hero_image %}
+                    {% else %}
+                        {% set hero_url = base_url ~"/assets/hero-images/default.jpg" %}
                     {% endif %}
+                    <span class="image fit"><img src="{{ hero_url }}" alt="{{ page.header.hero_alt }}" /></span>
+
                     {{ page.content }}
                 </section>
             {% endblock %}

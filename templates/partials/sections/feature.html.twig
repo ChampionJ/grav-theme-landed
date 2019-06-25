@@ -2,12 +2,10 @@
 	{% set extra_classes = placing is even ? ' style3 left' : 'style2 right' %}
 	{% set feature_data = f.header.spotlight %}
 	<section id="{{ f.slug }}" class="spotlight {{ extra_classes }}">
-		{% if feature_data.image %}
-			{% set feature_image = f.media.images[feature_data.image]|default(media['theme://' ~ feature_data.image]) %}
-		{% else %}
-			{% set feature_image = f.media.images['feature.jpg'] %}
+		{% if f.header.hero_image %}
+			{% set feature_image = base_url ~"/assets/hero-images/"~ f.header.hero_image %}
 		{% endif %}
-		<span class="image fit main"><img src="{{ feature_image.url }}" alt="" /></span>
+		<span class="image fit main"><img src="{{ feature_image }}" alt="" /></span>
 		<div class="content">
 			<header>
 				<h2>{{ feature_data.headline }}</h2>

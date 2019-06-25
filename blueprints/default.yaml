@@ -13,8 +13,13 @@ form:
           
           fields:
             header.hero_image:
-              type: pagemediaselect
+              type: filepicker
+              folder: 'page@:/assets/hero-images'
               label: Hero Image
+              preview_images: true
+              accept:
+                - .png
+                - .jpg
               help: The name and extension of an image in this folder
             header.subheading:
               type: text
@@ -35,10 +40,6 @@ form:
               collapsed: true     # Initial state of fieldset (see collapsible option)
               collapsible: true    # Whether one can expand the fieldset or not 
               fields:
-                header.spotlight.image:
-                  type: pagemediaselect
-                  label: Spotlight Background Image
-                  help: 
                 header.spotlight.headline:
                   type: text
                   label: Headline

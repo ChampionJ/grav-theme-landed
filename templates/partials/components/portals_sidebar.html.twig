@@ -3,13 +3,10 @@
 	{% set portal_page =  page.find(portal.path) %}
 	{% set portal_front =  portal_page.header %}
 	<section>
-		{% if portal_front.hero_image or portal_page.media['hero.jpg'] %}
-			{% if portal_front.hero_image %}
-				{% set hero_url = url(portal_page.media[portal_front.hero_image].url) %}
-			{% else %}
-				{% set hero_url = portal_page.media['hero.jpg'].url %}
-				{# TODO: try getting alt text from an image meta file #}
-			{% endif %}
+		{% if portal_front.hero_image %}
+			
+			{% set hero_url = base_url ~"/assets/hero-images/"~ portal_front.hero_image %}
+			
 			<span class="image fit"><img src="{{ hero_url }}" alt="{{ portal_front.hero_alt }}" /></span> {# NB: wrapping link 'a' element from source template replaced with span - just can't see why link should be here #}
 		{% endif %}
 		<h3>{{ portal_page.title }}</h3>
