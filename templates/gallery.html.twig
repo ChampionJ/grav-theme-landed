@@ -1,19 +1,11 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-    
+    {{ parent() }}
 
     {% set dateformat = admin.page.dateformat ?: config.system.pages.dateformat.short ?: "F d, Y" %}
 
-    {% if page.header.hero_image or page.media['hero.jpg'] %}
-        {% if page.header.hero_image %}
-            {% set hero_url = url(page.media[page.header.hero_image].url) %}
-        {% else %}
-            {% set hero_url = page.media['hero.jpg'].url %}
-            {# TODO: try getting alt text from an image meta file #}
-        {% endif %}
-        <span class="image fit"><img src="{{ hero_url }}" alt="{{ page.header.hero_alt }}" /></span> {# NB: wrapping link 'a' element from source template replaced with span - just can't see why link should be here #}
-    {% endif %}
+
 
 <section id="content">
     {{ page.content }}
